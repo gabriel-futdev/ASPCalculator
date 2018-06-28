@@ -1,0 +1,45 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div class="parent">
+  <div class="title">Angular | <span class="bold">{{title}}</span></div>
+  <div class="top card">
+    <div class="disp-history">
+      <p id="history">{{hist}}</p>
+    </div>
+    <div class="disp-calculated">
+      <p id="disp">{{toCompute}}</p>
+    </div>
+    <div class="eq-sign">
+      <p>=</p>
+    </div>
+  </div>
+
+
+
+  <div id="buttons">
+    <button id="r1" (click)='clear()'>AC</button>
+    <button id="r2" (click)='del()'><<</button>
+    <button id="r3" (click)='neg()'>+/-</button>
+    <button id="r4" (click)='appendThis("x")'>x</button>
+    <button id="r5" (click)='appendThis("7")'>7</button>
+    <button id="r6" (click)='appendThis("8")'>8</button>
+    <button id="r7" (click)='appendThis("9")'>9</button>
+    <button id="r8" (click)='appendThis("/")'>/</button>
+    <button id="r9" (click)='appendThis("4")'>4</button>
+    <button id="r10" (click)='appendThis("5")'>5</button>
+    <button id="r11" (click)='appendThis("6")'>6</button>
+    <button id="r12" (click)='appendThis("-")'>-</button>
+    <button id="r13" (click)='appendThis("1")'>1</button>
+    <button id="r14" (click)='appendThis("2")'>2</button>
+    <button id="r15" (click)='appendThis("3")'>3</button>
+    <button id="r16" (click)='appendThis("+")'>+</button>
+    <button id="r17" class="zero" (click)='appendThis("0")'>0</button>
+    <button id="r18" (click)='appendThis(".")'>.</button>
+    <button id="r19" (click)='calculate()' class="eqBtn">=</button>
+
+
+  </div>
+
+
+</div>
+
