@@ -13,17 +13,14 @@ namespace CalculatorWebAPI.Controllers
     [Route("[controller]")]
     public class CalculateController : Controller
     {
-        // GET: api/<controller>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { };
-        }
+      
+      
 
-        // GET api/<controller>/5
+       
         [HttpGet("{expression}")]
         public string Get(string expression)
         {
+            // replace muna ng mga special characters before proceeding to calculation
             string newExpression = expression.Replace('!', '+');
             newExpression = newExpression.Replace('@', '-');
             newExpression = newExpression.Replace('&', '*');
@@ -31,6 +28,7 @@ namespace CalculatorWebAPI.Controllers
             double result;
             try
             {
+                // here's the trick!, here's the equivalent of 'eval' function of JavaScript 
                 result = Convert.ToDouble(new DataTable().Compute(newExpression, null));
             }
             catch (Exception)
@@ -41,23 +39,5 @@ namespace CalculatorWebAPI.Controllers
             return result.ToString();
         }
 
-        // POST api/<controller>
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        
-        }
-
-        // PUT api/<controller>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/<controller>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

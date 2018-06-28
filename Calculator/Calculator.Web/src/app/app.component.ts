@@ -102,15 +102,20 @@ export class AppComponent implements OnInit {
 
             if (this.toCompute !== '' || parseFloat(this.toCompute) !== 0) {
 
+                // replacing operators with special characters, to avoid errors while transfering the expression to the server
                 let newExpression: string = this.toCompute.replace( '+', '!' );
                 newExpression = newExpression.replace( '-', '@' );
                 newExpression = newExpression.replace( 'x', '&' );
                 newExpression = newExpression.replace( '/', '$' );
+
                 console.log( newExpression );
                 this.hist = this.toCompute;
+
+                // Sending string math expression to the server!
                 this._http.get( '/calculate/' + newExpression ).subscribe( result => {
-                    this.toCompute = result.text();
-                }, error => console.error( error ) );
+                      // update the value of toUpdate
+                      this.toCompute = result.text();
+                  }, error => console.error( error ) );
 
                 
             
